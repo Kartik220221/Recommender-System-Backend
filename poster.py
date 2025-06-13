@@ -6,7 +6,6 @@ import asyncio
 load_dotenv()
 
 api_key = os.getenv("OMDB_API_KEY")
-base_url = os.getenv("TMDB_BASE_URL")
 
 
 if not api_key:
