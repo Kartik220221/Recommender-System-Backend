@@ -14,9 +14,9 @@ def download_if_not_exists(url,local_path):
 def load_model(filename_prefix='rec_files/movie_rec'):
     os.makedirs('rec_files', exist_ok=True)
 
-    csv_url = 'https://your-csv-file-link.com'
-    cosine_url = 'https://your-cosine-npy-link.com'
-    tfidf_url = 'https://your-tfidf-npy-link.com'
+    csv_url = 'https://drive.google.com/file/d/18f1Ocfr4qXhS8JxxBokdCU2V9bcC8C3J/view?usp=sharing'
+    cosine_url = 'https://drive.google.com/file/d/1uxKdfyUaPflp02A0ef8EFHdaaIV6Rt-a/view?usp=sharing'
+    tfidf_url = 'https://drive.google.com/file/d/1vOtvz_3gNNtH9ykMFqULsOZezwkx8-2z/view?usp=sharing'
 
     csv_path = f'{filename_prefix}_processed.csv'
     cosine_path = f"{filename_prefix}_cosine_sim.npy"
