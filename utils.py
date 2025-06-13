@@ -1,10 +1,33 @@
 import pandas as pd
 import numpy as np
+import requests
+import os
+
+def download_if_not_exists(url,local_path):
+    if not os.path.exists(local_path):
+        print("downloading local path")
+        response = requests.get(url)
+        with open(local_path,'wb') as f:
+            f.write(response.content)
+
 
 def load_model(filename_prefix='rec_files/movie_rec'):
-    df = pd.read_csv(f'{filename_prefix}_processed.csv')
-    cosine_np = np.load(f"{filename_prefix}_cosine_sim.npy")
-    tfidf_matrix = np.load(f"{filename_prefix}_tfidf.npy")
+    os.makedirs('rec_files', exist_ok=True)
+
+    csv_url = 'https://your-csv-file-link.com'
+    cosine_url = 'https://your-cosine-npy-link.com'
+    tfidf_url = 'https://your-tfidf-npy-link.com'
+
+    csv_path = f'{filename_prefix}_processed.csv'
+    cosine_path = f"{filename_prefix}_cosine_sim.npy"
+    tfidf_path = f"{filename_prefix}_tfidf.npy"
+
+    download_if_not_exists(csv_url, csv_path)
+    download_if_not_exists(cosine_url, cosine_path)
+    download_if_not_exists(tfidf_url, tfidf_path)
+    df = pd.read_csv(csv_path)
+    cosine_np = np.load(cosine_path)
+    tfidf_matrix = np.load(tfidf_path)
     return df,cosine_np,tfidf_matrix
 
 def get_movie_recommendations(movie_title,df,cosine_matrix,top_n=5):
