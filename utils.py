@@ -14,8 +14,8 @@ def download_if_not_exists(url,local_path):
 def load_model(filename_prefix='rec_files/movie_rec'):
     os.makedirs('rec_files', exist_ok=True)
 
-    csv_url = 'https://drive.google.com/file/d/18f1Ocfr4qXhS8JxxBokdCU2V9bcC8C3J/view?usp=sharing'
-    cosine_url = 'https://drive.google.com/file/d/1uxKdfyUaPflp02A0ef8EFHdaaIV6Rt-a/view?usp=sharing'
+    csv_url = 'https://drive.google.com/file/d/1uxKdfyUaPflp02A0ef8EFHdaaIV6Rt-a/view?usp=sharing'
+    cosine_url = 'https://drive.google.com/file/d/18f1Ocfr4qXhS8JxxBokdCU2V9bcC8C3J/view?usp=drive_link'
     tfidf_url = 'https://drive.google.com/file/d/1vOtvz_3gNNtH9ykMFqULsOZezwkx8-2z/view?usp=sharing'
 
     csv_path = f'{filename_prefix}_processed.csv'
