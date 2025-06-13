@@ -25,8 +25,8 @@ def load_model(filename_prefix='rec_files/movie_rec'):
     download_if_not_exists(cosine_url, cosine_path)
     download_if_not_exists(tfidf_url, tfidf_path)
     df = pd.read_csv(csv_path)
-    cosine_np = np.load(cosine_path)
-    tfidf_matrix = np.load(tfidf_path)
+    cosine_np = np.load(cosine_path,allow_pickle=True)
+    tfidf_matrix = np.load(tfidf_path,allow_pickle=True)
     return df,cosine_np,tfidf_matrix
 
 def get_movie_recommendations(movie_title,df,cosine_matrix,top_n=5):
