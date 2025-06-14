@@ -3,6 +3,13 @@ import numpy as np
 import requests
 import os
 
+import gdown
+
+def download_if_not_exists(url, local_path):
+    if not os.path.exists(local_path):
+        print(f"Downloading → {local_path}")
+        gdown.download(url, local_path, quiet=False)
+
 def download_if_not_exists(url,local_path):
     if not os.path.exists(local_path):
         print("downloading local path")
@@ -13,9 +20,9 @@ def download_if_not_exists(url,local_path):
 
 def load_model(filename_prefix='rec_files/movie_rec'):
     os.makedirs('rec_files', exist_ok=True)
-    cosine_url     = 'https://drive.google.com/uc?export=download&id=18f1Ocfr4qXhS8JxxBokdCU2V9bcC8C3J'
-    csv_url  = 'https://drive.google.com/uc?export=download&id=1uxKdfyUaPflp02A0ef8EFHdaaIV6Rt-a'
-    tfidf_url   = 'https://drive.google.com/uc?export=download&id=1vOtvz_3gNNtH9ykMFqULsOZezwkx8-2z'
+    cosine_url    = 'https://drive.google.com/uc?export=download&id=18f1Ocfr4qXhS8JxxBokdCU2V9bcC8C3J'
+    csv_url = 'https://drive.google.com/uc?export=download&id=1uxKdfyUaPflp02A0ef8EFHdaaIV6Rt-a'
+    tfidf_url  = 'https://drive.google.com/uc?export=download&id=1vOtvz_3gNNtH9ykMFqULsOZezwkx8-2z'
 
     csv_path = f'{filename_prefix}_processed.csv'
     cosine_path = f"{filename_prefix}_cosine_sim.npy"
